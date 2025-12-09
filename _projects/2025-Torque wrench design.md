@@ -35,7 +35,7 @@ The strain at the strain gauge location was 1022.8 microstrain according to Ansy
 ![Image of deflection plot]({{ "/assets/images/torque_wrench_principle_deflection.png" | relative_url }}){:width="600px"}
 ![Strain Gauge Image]({{ "/assets/images/torque_wrench_strain_gauge.png" | relative_url }}){:width="600px"}
 
-7. We did calculations on torque wrench sensitivity in mV/V using strains from the FEM analysis.
+7.We did calculations on torque wrench sensitivity in mV/V using strains from the FEM analysis.
 ε<sub>1</sub> = 1022.8 microstrain<br>
     <i>change in gauge resistance</i> = k ε<sub>gauge</sub><br>
     <b>From half-bridge:</b>
@@ -44,4 +44,4 @@ The strain at the strain gauge location was 1022.8 microstrain according to Ansy
     <sup>V<sub>out</sub></sup>/<sub>V<sub>in</sub></sub> = (2k / 4)(2ε<sub>1</sub>) = ε<sub>1</sub><br>
     Therefore the torque wrench sensitivity = <b>1.0228 mV/V</b>
 
-8. We did research on the strain gauge to select. The Omega 1-LM11-1.5/350GE strain gauge fits our design. Its dimensions are 0.35 x 0.17 inches. It is a linear strain gauge measuring strain in one direction, so we can orient it along the handle to measure strain during bending. Also it has a gauge factor of about 2. Its maximum elongation is 10,000 microstrain, and our torque wrench has a max strain of a little over 1,000 microstrain, so this gauge is appropriate. 
+8.We did research on the strain gauge to select. The Omega 1-LM11-1.5/350GE strain gauge fits our design. Its dimensions are 0.35 x 0.17 inches. It is a linear strain gauge measuring strain in one direction, so we can orient it along the handle to measure strain during bending. Also it has a gauge factor of about 2. Its maximum elongation is 10,000 microstrain, and our torque wrench has a max strain of a little over 1,000 microstrain, so this gauge is appropriate. 
