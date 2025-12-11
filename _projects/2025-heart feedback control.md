@@ -3,14 +3,16 @@ layout: project
 title: Heart Feedback Control
 description: System Dynamics project on feedback control of the Windkessel model
 technologies: [MATLAB]
-image: /assets/images/spaceship-design.jpg
+image: /assets/images/3260_heartbeat.png
 ---
 
 Our group studied arteries near the heart as low pass filters. The heartbeat can be modeled as a frequency input, with arterial compliance and resistance mediating the ultimate output blood pressure. Though the heart moves blood in beats, the arteries manage to supply the body with a constant flow because of their ability to act as low pass filters. Throughout this study, we created open and closed loop models and studied disturbance rejection. Additionally, we researched the function of a 3 and 4 element Windkessel model, which add impedance and inertance as components of the system. 
 
 Context: The Two-Element Windkessel Arterial Model
-The human heart is a complex biological system that affects all other parts of the body in one way or another. Its primary function is to pump blood to the rest of the body, sustaining life and keeping the body up and running. For the purposes of this project, we have simplified the overall model of the heart, and focused on the windkessel effect. The windkessel effect is a mechanism within the heart and the major arteries that control and level out the flow of blood from a pumping heart to the rest of the body. As a heart beats, it sends unequal amounts of blood during diastole vs systole. In order to give the body a constant, equal stream of flow, the arteries will expand and contract themselves to act as a reservoir when the heart is pumping more blood out in systole, and push the stored blood out when the heart is filling in diastole. This phenomenon is shown in the two diagrams below. [1]
+	The human heart is a complex biological system that affects all other parts of the body in one way or another. Its primary function is to pump blood to the rest of the body, sustaining life and keeping the body up and running. For the purposes of this project, we have simplified the overall model of the heart, and focused on the windkessel effect. The windkessel effect is a mechanism within the heart and the major arteries that control and level out the flow of blood from a pumping heart to the rest of the body. As a heart beats, it sends unequal amounts of blood during diastole vs systole. In order to give the body a constant, equal stream of flow, the arteries will expand and contract themselves to act as a reservoir when the heart is pumping more blood out in systole, and push the stored blood out when the heart is filling in diastole. This phenomenon is shown in the two diagrams below. [1]
 ![Diagram showing the movement in arteries due to the windkessel effect[1]]({{ "/assets/images/3260_arteries.png" | relative_url }}){:width="600px"}
+Figure 1: Diagram showing the movement in arteries due to the windkessel effect during diastole (a) and systole (b) [1]
+
 
 In this way, the body receives a constant amount of blood flow no matter what the heart is doing. The effectiveness of the windkessel is relative to parameters, not exclusive to, but including compliance and resistance. Compliance deals with the elasticity of the arteries in the heart, determining how well they will expand, and therefore how much blood can be stored within them before being pushed out. Compliance will often decrease with things like aging, smoking, or even diabetes which means the heart has to work harder and will result in an increase of blood pressure. Resistance relates to how easily the blood flows through the arteries, affected by use of drugs such as nicotine and cocaine, as well as being increased by stress and anxiety which makes it harder for the heart to pump the required amount of blood to the rest of the body. Using resistance and compliance within the arteries creates a 2-element system that can be analyzed in various ways. The actual heartbeat can be considered an input to the system, which controls overall blood flow. For this simplified model, it can be thought of as a sinusoidal input.
 
@@ -46,6 +48,8 @@ Q<sub>in</sub>(t) = Q<sub>0</sub> + A sin(ωt)<br><br>
 
 This models the changing inflow from the heart and results in the pressure waveform shown below.
 ![Graphical model showcasing pressure and flow altering with heartbeat modeled as a sinusoidal input]({{ "/assets/images/3260_heartbeat.png" | relative_url }}){:width="600px"}
+Figure 2: Graphical model showcasing pressure and flow altering with heartbeat modeled as a sinusoidal input
+
 
 The oscillations represent the heartbeat or pulse rate, and the flowrate is constant whereas the pressure is changing. The constant flow represents the heart beating, and the changing pressure shows the windkessel in effect, eventually reaching steady periodic oscillations, or the system’s steady state showcasing a working windkessel effect.
 
@@ -92,6 +96,8 @@ Another helpful aspect of the pole is the fact that it is negative. This tells u
 Three and Four-Element Modeling
 So far in this report, we have considered a 2-element Windkessel model, with compliance and resistance as the parameters. This kind of  model works well for lower frequencies and slower pressure decay, but becomes insufficient when there are steep pressure changes, higher frequencies in the flow, wave propagation, and wave reflection. This happens in systole, when the heart contracts and pumps blood to the arteries. Once ventricular pressure is higher than aortic pressure, the semilunar valves open and blood is ejected. Research done by the VU University Medical Center in Amsterdam identifies a 3-element model and a 4-element model, both geared to address this problem. The 3-element model adds a characteristic impedance, and the 4-element model adds an inertance related to the energy needed to accelerate blood through the arteries. Characteristic impedance equals wave speed times blood density divided by aortic cross-sectional area [2].
 ![Bode Plot showing 2, 3, 4 element models, measured impedance and phase [2]]({{ "/assets/images/3260_bode_plots.png" | relative_url }}){:width="600px"}
+Figure 3: Bode Plot showing 2, 3, 4 element models, measured impedance and phase [2]
+
 
 When wave propagation and inertance are accounted for, the accuracy of our model increases by a lot, especially during systole, because arteries are transmission lines, not reservoirs. Depending on the frequency, the area of study for impedance changes. At high frequencies, it is possible to understand the system with a small area of study, near the aorta. Lower frequencies require analysis further down the arterial tree. 
 When the heart suddenly ejects blood, that blood must be accelerated, and mass resists acceleration. Just as adding in an RLC circuit, considering acceleration makes the closed loop system now second order.
@@ -171,6 +177,7 @@ Disturbances caused by rapid oscillations correlate to when s approaches infinit
 
 
 ![Effect of controller gain K on disturbance rejection for both high and low frequency disturbance in the two-element, closed-loop Windkessel model [graphs generated using code from ChatGPT]]({{ "/assets/images/3260_disturbance.png" | relative_url }}){:width="900px"}
+Figure 4: Effect of controller gain K on disturbance rejection for both high and low frequency disturbance in the two-element, closed-loop Windkessel model [graphs generated using code from ChatGPT]
 
 From the graphs it is clear that the controller gain has significant impacts on the response for low-frequency disturbances, but little impact for high-frequency disturbances. For low frequency increasing K improves the disturbance rejection and the output stays closer to the reference while recovering faster. For high frequency disturbances, the disturbance passes through the system largely unaffected by the controller gain K. This once again demonstrates that the Windkessel model functions as a first-order low-pass system that is unstable to reject rapid oscillations.
 
