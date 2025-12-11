@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Heart Feedback Control
+title: Feedback Control in the Windkessel Model
 description: System Dynamics project on feedback control of the Windkessel model
 technologies: [MATLAB]
 image: /assets/images/3260_heartbeat.png
