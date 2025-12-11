@@ -9,8 +9,10 @@ image: /assets/images/3260_heartbeat.png
 Our group studied arteries near the heart as low pass filters. The heartbeat can be modeled as a frequency input, with arterial compliance and resistance mediating the ultimate output blood pressure. Though the heart moves blood in beats, the arteries manage to supply the body with a constant flow because of their ability to act as low pass filters. Throughout this study, we created open and closed loop models and studied disturbance rejection. Additionally, we researched the function of a 3 and 4 element Windkessel model, which add impedance and inertance as components of the system. 
 
 Context: The Two-Element Windkessel Arterial Model
-	The human heart is a complex biological system that affects all other parts of the body in one way or another. Its primary function is to pump blood to the rest of the body, sustaining life and keeping the body up and running. For the purposes of this project, we have simplified the overall model of the heart, and focused on the windkessel effect. The windkessel effect is a mechanism within the heart and the major arteries that control and level out the flow of blood from a pumping heart to the rest of the body. As a heart beats, it sends unequal amounts of blood during diastole vs systole. In order to give the body a constant, equal stream of flow, the arteries will expand and contract themselves to act as a reservoir when the heart is pumping more blood out in systole, and push the stored blood out when the heart is filling in diastole. This phenomenon is shown in the two diagrams below. [1]
+
+The human heart is a complex biological system that affects all other parts of the body in one way or another. Its primary function is to pump blood to the rest of the body, sustaining life and keeping the body up and running. For the purposes of this project, we have simplified the overall model of the heart, and focused on the windkessel effect. The windkessel effect is a mechanism within the heart and the major arteries that control and level out the flow of blood from a pumping heart to the rest of the body. As a heart beats, it sends unequal amounts of blood during diastole vs systole. In order to give the body a constant, equal stream of flow, the arteries will expand and contract themselves to act as a reservoir when the heart is pumping more blood out in systole, and push the stored blood out when the heart is filling in diastole. This phenomenon is shown in the two diagrams below. [1]
 ![Diagram showing the movement in arteries due to the windkessel effect[1]]({{ "/assets/images/3260_arteries.png" | relative_url }}){:width="600px"}
+
 Figure 1: Diagram showing the movement in arteries due to the windkessel effect during diastole (a) and systole (b) [1]
 
 
@@ -18,6 +20,7 @@ In this way, the body receives a constant amount of blood flow no matter what th
 
 Open Loop Arterial System TF
 Modeling the windkessel as a 2-element open loop system allows for the heart to be analyzed as a first order linear system. With the windkessel acting as a low-pass filter, the mean flow will produce pressure that is proportional to the resistance R, while the high-frequency pulses of the heart will impact the compliance, C. Starting with the basics, the governing equation for this system can be found using the bases of the conservation of flow and the definitions of compliance and resistance: 
+
 <b>Half-bridge output equation:</b><br>
 <sup>V<sub>out</sub></sup>/<sub>V<sub>in</sub></sub> = (k / 4)(ε<sub>1</sub> − ε<sub>2</sub>)<br><br>
 
@@ -48,6 +51,7 @@ Q<sub>in</sub>(t) = Q<sub>0</sub> + A sin(ωt)<br><br>
 
 This models the changing inflow from the heart and results in the pressure waveform shown below.
 ![Graphical model showcasing pressure and flow altering with heartbeat modeled as a sinusoidal input]({{ "/assets/images/3260_heartbeat.png" | relative_url }}){:width="600px"}
+
 Figure 2: Graphical model showcasing pressure and flow altering with heartbeat modeled as a sinusoidal input
 
 
