@@ -2,7 +2,7 @@
 layout: project
 title: Torque Wrench design and Analysis
 description: Ansys Analysis
-technologies: [Autodesk Fusion]
+technologies: [Ansys, Fusion 360]
 image: /assets/images/torque_wrench_Normal_stress_close.png
 ---
 
